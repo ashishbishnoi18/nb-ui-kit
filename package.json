@@ -1,0 +1,36 @@
+{
+  "name": "nb-ui-kit",
+  "version": "1.0.0",
+  "description": "A clean Neo Brutalism design system — 40+ components, bold borders, hard shadows, pure CSS + vanilla JS.",
+  "main": "js/nb-all.js",
+  "style": "css/nb-all.css",
+  "files": [
+    "css/",
+    "js/",
+    "assets/",
+    "dist/",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build:css": "node scripts/build-css.js",
+    "build:js": "node scripts/build-js.js",
+    "build": "npm run build:css && npm run build:js",
+    "dev": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "ui-kit",
+    "design-system",
+    "neo-brutalism",
+    "brutalist",
+    "css",
+    "components",
+    "vanilla-js"
+  ],
+  "author": "ashishbishnoi18",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishbishnoi18/nb-ui-kit.git"
+  },
+  "homepage": "https://github.com/ashishbishnoi18/nb-ui-kit"
+}
