@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Modern CSS Reset — Clean Neo Brutalism UI Kit
+   ========================================================================== */
+
+@layer reset {
+  /*
+   * 1. Use border-box by default on all elements.
+   * 2. Prevent padding and border from affecting element width.
+   */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+   * 1. Smooth scrolling for anchor navigation.
+   * 2. Respect user preference for reduced motion.
+   */
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /*
+   * 1. Full viewport height as minimum.
+   * 2. Apply the design-system sans font.
+   * 3. Antialiased text rendering.
+   * 4. Sensible base line height.
+   * 5. Prevent font-size inflation on mobile.
+   */
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: var(--nb-font-sans);
+    font-size: var(--nb-text-base);
+    line-height: var(--nb-leading-normal);
+    color: var(--nb-black);
+    background-color: var(--nb-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings and paragraphs reset */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+
+  p {
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+  }
+
+  /* Images, pictures, videos, canvas, SVG — responsive by default */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Form elements inherit font */
+  input,
+  button,
+  textarea,
+  select,
+  optgroup {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* Remove default button styles */
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  /* Textarea only resizes vertically by default */
+  textarea {
+    resize: vertical;
+  }
+
+  /* Remove list styles on ul, ol with a list role (preserves semantics) */
+  ul[role='list'],
+  ol[role='list'],
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  /* Anchor elements without a class get default link styles */
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  /* Table reset */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  /* Remove default fieldset styles */
+  fieldset {
+    border: none;
+  }
+
+  /* Remove default summary marker in webkit */
+  summary {
+    display: list-item;
+  }
+
+  /* Remove default dialog styles */
+  dialog {
+    padding: 0;
+  }
+
+  /* Hidden attribute support */
+  [hidden] {
+    display: none !important;
+  }
+
+  /* Prevent touch callout on iOS */
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Remove default hr appearance */
+  hr {
+    border: none;
+    height: 0;
+  }
+
+  /* Remove default search input appearance */
+  input[type='search']::-webkit-search-decoration,
+  input[type='search']::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Consistent monospace font sizing */
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--nb-font-mono);
+    font-size: 1em;
+  }
+
+  /* Remove spin buttons from number inputs */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    height: auto;
+  }
+}

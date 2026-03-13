@@ -1,0 +1,47 @@
+/*
+ * NB UI Kit — Master CSS Import
+ * Neo Brutalism Design System v1.0
+ *
+ * Include this single file to load the entire kit:
+ * <link rel="stylesheet" href="css/nb-all.css">
+ */
+
+/* Layer order declaration — utilities always win */
+@layer reset, tokens, base, layout, components, utilities;
+
+/* Foundation */
+@import "tokens.css";
+@import "reset.css";
+@import "base.css";
+
+/* Layout */
+@import "layouts/grid.css";
+@import "layouts/containers.css";
+
+/* Components */
+@import "components/buttons.css";
+@import "components/inputs.css";
+@import "components/select.css";
+@import "components/checkbox-radio.css";
+@import "components/toggle.css";
+@import "components/file-upload.css";
+@import "components/cards.css";
+@import "components/badges.css";
+@import "components/avatars.css";
+@import "components/alerts.css";
+@import "components/toasts.css";
+@import "components/progress.css";
+@import "components/tables.css";
+@import "components/breadcrumbs.css";
+@import "components/pagination.css";
+@import "components/tooltips.css";
+@import "components/modals.css";
+@import "components/dropdowns.css";
+@import "components/tabs.css";
+@import "components/accordions.css";
+@import "components/navbar.css";
+@import "components/sidebar.css";
+@import "components/footer.css";
+
+/* Utilities (last — highest specificity via layers) */
+@import "utilities.css";

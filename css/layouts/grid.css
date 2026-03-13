@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Grid System — Clean Neo Brutalism UI Kit
+   ==========================================================================
+   12-column grid system with responsive container and row primitives.
+   ========================================================================== */
+
+@layer layout {
+  /* ==================================================================
+     Container
+     ------------------------------------------------------------------
+     Centered, max-width wrapper with inline padding.
+     ================================================================== */
+  .nb-container {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--nb-space-4);
+  }
+
+  @media (min-width: 640px) {
+    .nb-container {
+      max-width: 640px;
+      padding-inline: var(--nb-space-6);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .nb-container {
+      max-width: 768px;
+      padding-inline: var(--nb-space-6);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .nb-container {
+      max-width: 1024px;
+      padding-inline: var(--nb-space-8);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .nb-container {
+      max-width: 1280px;
+      padding-inline: var(--nb-space-8);
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .nb-container {
+      max-width: 1536px;
+    }
+  }
+
+  /* ==================================================================
+     Container — Fluid (no max-width breakpoints)
+     ================================================================== */
+  .nb-container-fluid {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--nb-space-4);
+  }
+
+  @media (min-width: 768px) {
+    .nb-container-fluid {
+      padding-inline: var(--nb-space-6);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .nb-container-fluid {
+      padding-inline: var(--nb-space-8);
+    }
+  }
+
+  /* ==================================================================
+     Row — 12 Column Grid
+     ------------------------------------------------------------------
+     Use .nb-row as a parent, then column span utilities on children.
+     ================================================================== */
+  .nb-row {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--nb-space-6);
+  }
+
+  /* Row gap variants */
+  .nb-row--gap-0 { gap: 0; }
+  .nb-row--gap-2 { gap: var(--nb-space-2); }
+  .nb-row--gap-4 { gap: var(--nb-space-4); }
+  .nb-row--gap-6 { gap: var(--nb-space-6); }
+  .nb-row--gap-8 { gap: var(--nb-space-8); }
+  .nb-row--gap-10 { gap: var(--nb-space-10); }
+  .nb-row--gap-12 { gap: var(--nb-space-12); }
+
+  /* Row alignment */
+  .nb-row--items-center { align-items: center; }
+  .nb-row--items-start { align-items: start; }
+  .nb-row--items-end { align-items: end; }
+  .nb-row--items-stretch { align-items: stretch; }
+
+  /* ==================================================================
+     Column Spans (base — mobile-first, stacks by default)
+     ------------------------------------------------------------------
+     At base, all columns span full width. Use responsive prefixes
+     (sm:, md:, lg:, xl:) to set column widths at breakpoints.
+     ================================================================== */
+  .nb-col-1 { grid-column: span 1 / span 1; }
+  .nb-col-2 { grid-column: span 2 / span 2; }
+  .nb-col-3 { grid-column: span 3 / span 3; }
+  .nb-col-4 { grid-column: span 4 / span 4; }
+  .nb-col-5 { grid-column: span 5 / span 5; }
+  .nb-col-6 { grid-column: span 6 / span 6; }
+  .nb-col-7 { grid-column: span 7 / span 7; }
+  .nb-col-8 { grid-column: span 8 / span 8; }
+  .nb-col-9 { grid-column: span 9 / span 9; }
+  .nb-col-10 { grid-column: span 10 / span 10; }
+  .nb-col-11 { grid-column: span 11 / span 11; }
+  .nb-col-12 { grid-column: span 12 / span 12; }
+  .nb-col-full { grid-column: 1 / -1; }
+
+  /* Column start */
+  .nb-col-start-1 { grid-column-start: 1; }
+  .nb-col-start-2 { grid-column-start: 2; }
+  .nb-col-start-3 { grid-column-start: 3; }
+  .nb-col-start-4 { grid-column-start: 4; }
+  .nb-col-start-5 { grid-column-start: 5; }
+  .nb-col-start-6 { grid-column-start: 6; }
+  .nb-col-start-7 { grid-column-start: 7; }
+  .nb-col-start-8 { grid-column-start: 8; }
+  .nb-col-start-9 { grid-column-start: 9; }
+  .nb-col-start-10 { grid-column-start: 10; }
+  .nb-col-start-11 { grid-column-start: 11; }
+  .nb-col-start-12 { grid-column-start: 12; }
+  .nb-col-start-13 { grid-column-start: 13; }
+
+  /* ==================================================================
+     Responsive Column Spans — sm (640px)
+     ================================================================== */
+  @media (min-width: 640px) {
+    .sm\:nb-col-1 { grid-column: span 1 / span 1; }
+    .sm\:nb-col-2 { grid-column: span 2 / span 2; }
+    .sm\:nb-col-3 { grid-column: span 3 / span 3; }
+    .sm\:nb-col-4 { grid-column: span 4 / span 4; }
+    .sm\:nb-col-5 { grid-column: span 5 / span 5; }
+    .sm\:nb-col-6 { grid-column: span 6 / span 6; }
+    .sm\:nb-col-7 { grid-column: span 7 / span 7; }
+    .sm\:nb-col-8 { grid-column: span 8 / span 8; }
+    .sm\:nb-col-9 { grid-column: span 9 / span 9; }
+    .sm\:nb-col-10 { grid-column: span 10 / span 10; }
+    .sm\:nb-col-11 { grid-column: span 11 / span 11; }
+    .sm\:nb-col-12 { grid-column: span 12 / span 12; }
+    .sm\:nb-col-full { grid-column: 1 / -1; }
+  }
+
+  /* ==================================================================
+     Responsive Column Spans — md (768px)
+     ================================================================== */
+  @media (min-width: 768px) {
+    .md\:nb-col-1 { grid-column: span 1 / span 1; }
+    .md\:nb-col-2 { grid-column: span 2 / span 2; }
+    .md\:nb-col-3 { grid-column: span 3 / span 3; }
+    .md\:nb-col-4 { grid-column: span 4 / span 4; }
+    .md\:nb-col-5 { grid-column: span 5 / span 5; }
+    .md\:nb-col-6 { grid-column: span 6 / span 6; }
+    .md\:nb-col-7 { grid-column: span 7 / span 7; }
+    .md\:nb-col-8 { grid-column: span 8 / span 8; }
+    .md\:nb-col-9 { grid-column: span 9 / span 9; }
+    .md\:nb-col-10 { grid-column: span 10 / span 10; }
+    .md\:nb-col-11 { grid-column: span 11 / span 11; }
+    .md\:nb-col-12 { grid-column: span 12 / span 12; }
+    .md\:nb-col-full { grid-column: 1 / -1; }
+  }
+
+  /* ==================================================================
+     Responsive Column Spans — lg (1024px)
+     ================================================================== */
+  @media (min-width: 1024px) {
+    .lg\:nb-col-1 { grid-column: span 1 / span 1; }
+    .lg\:nb-col-2 { grid-column: span 2 / span 2; }
+    .lg\:nb-col-3 { grid-column: span 3 / span 3; }
+    .lg\:nb-col-4 { grid-column: span 4 / span 4; }
+    .lg\:nb-col-5 { grid-column: span 5 / span 5; }
+    .lg\:nb-col-6 { grid-column: span 6 / span 6; }
+    .lg\:nb-col-7 { grid-column: span 7 / span 7; }
+    .lg\:nb-col-8 { grid-column: span 8 / span 8; }
+    .lg\:nb-col-9 { grid-column: span 9 / span 9; }
+    .lg\:nb-col-10 { grid-column: span 10 / span 10; }
+    .lg\:nb-col-11 { grid-column: span 11 / span 11; }
+    .lg\:nb-col-12 { grid-column: span 12 / span 12; }
+    .lg\:nb-col-full { grid-column: 1 / -1; }
+  }
+
+  /* ==================================================================
+     Responsive Column Spans — xl (1280px)
+     ================================================================== */
+  @media (min-width: 1280px) {
+    .xl\:nb-col-1 { grid-column: span 1 / span 1; }
+    .xl\:nb-col-2 { grid-column: span 2 / span 2; }
+    .xl\:nb-col-3 { grid-column: span 3 / span 3; }
+    .xl\:nb-col-4 { grid-column: span 4 / span 4; }
+    .xl\:nb-col-5 { grid-column: span 5 / span 5; }
+    .xl\:nb-col-6 { grid-column: span 6 / span 6; }
+    .xl\:nb-col-7 { grid-column: span 7 / span 7; }
+    .xl\:nb-col-8 { grid-column: span 8 / span 8; }
+    .xl\:nb-col-9 { grid-column: span 9 / span 9; }
+    .xl\:nb-col-10 { grid-column: span 10 / span 10; }
+    .xl\:nb-col-11 { grid-column: span 11 / span 11; }
+    .xl\:nb-col-12 { grid-column: span 12 / span 12; }
+    .xl\:nb-col-full { grid-column: 1 / -1; }
+  }
+}

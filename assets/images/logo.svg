@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <!-- Rounded rectangle background -->
+  <rect x="2" y="2" width="116" height="36" rx="8" ry="8" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+
+  <!-- Yellow-green accent bar on left -->
+  <rect x="2" y="2" width="10" height="36" rx="8" ry="0" fill="#BFFF00" stroke="#000000" stroke-width="3"/>
+  <!-- Clip the accent to stay within the rounded rect -->
+  <clipPath id="accent-clip">
+    <rect x="2" y="2" width="10" height="36" rx="8" ry="8"/>
+  </clipPath>
+  <rect x="2" y="2" width="14" height="36" fill="#BFFF00" clip-path="url(#accent-clip)"/>
+  <!-- Re-draw the border so it sits on top -->
+  <rect x="2" y="2" width="116" height="36" rx="8" ry="8" fill="none" stroke="#000000" stroke-width="3"/>
+
+  <!-- "NB" text — bold geometric sans-serif -->
+  <text x="60" y="28" text-anchor="middle" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="800" fill="#000000" letter-spacing="2">NB</text>
+</svg>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found — NB UI Kit</title>
+  <link rel="stylesheet" href="../css/nb-all.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--nb-space-6);
+      text-align: center;
+      font-family: var(--nb-font-sans);
+      position: relative;
+    }
+    .error-code {
+      font-size: 10rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: var(--nb-tracking-tighter);
+      color: var(--nb-black);
+      position: relative;
+      z-index: 1;
+    }
+    @media (min-width: 768px) {
+      .error-code {
+        font-size: 14rem;
+      }
+    }
+    .error-decoration {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: var(--nb-border-thick);
+      border-radius: var(--nb-radius);
+      box-shadow: var(--nb-shadow-xl);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .error-decoration--1 {
+      background-color: var(--nb-yellow-300);
+      top: 15%;
+      left: 10%;
+      transform: rotate(-12deg);
+    }
+    .error-decoration--2 {
+      background-color: var(--nb-green-400);
+      bottom: 18%;
+      right: 8%;
+      transform: rotate(8deg);
+      width: 120px;
+      height: 120px;
+    }
+    @media (max-width: 768px) {
+      .error-decoration {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="error-page">
+
+  <!-- Decorative elements -->
+  <div class="error-decoration error-decoration--1" aria-hidden="true"></div>
+  <div class="error-decoration error-decoration--2" aria-hidden="true"></div>
+
+  <!-- 404 Code -->
+  <div class="error-code">404</div>
+
+  <!-- Heading -->
+  <h1 class="nb-text-2xl md:nb-text-4xl nb-font-extrabold nb-mb-3" style="position:relative; z-index:1;">
+    Page not found
+  </h1>
+
+  <!-- Description -->
+  <p class="nb-text-base md:nb-text-lg nb-text-gray-600 nb-mb-8" style="max-width: 440px; position:relative; z-index:1;">
+    The page you're looking for doesn't exist or has been moved.
+  </p>
+
+  <!-- Buttons -->
+  <div class="nb-flex nb-flex-wrap nb-gap-3 nb-justify-center" style="position:relative; z-index:1;">
+    <a href="../index.html" class="nb-btn nb-btn--primary nb-btn--lg">
+      Go Home
+    </a>
+    <a href="#" class="nb-btn nb-btn--outline nb-btn--lg">
+      Contact Support
+    </a>
+  </div>
+
+</div>
+
+<script src="../js/nb-all.js"></script>
+</body>
+</html>

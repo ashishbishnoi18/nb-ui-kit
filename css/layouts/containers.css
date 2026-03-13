@@ -1,0 +1,368 @@
+/* ==========================================================================
+   Containers & Sections — Clean Neo Brutalism UI Kit
+   ==========================================================================
+   Layout primitives for page structure: sections, size-constrained
+   containers, and prose/readable-content wrappers.
+   ========================================================================== */
+
+@layer layout {
+  /* ==================================================================
+     Section
+     ------------------------------------------------------------------
+     Vertical padding for page sections. Scales up at breakpoints.
+     ================================================================== */
+  .nb-section {
+    padding-block: var(--nb-space-12);
+  }
+
+  @media (min-width: 768px) {
+    .nb-section {
+      padding-block: var(--nb-space-16);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .nb-section {
+      padding-block: var(--nb-space-20);
+    }
+  }
+
+  .nb-section--sm {
+    padding-block: var(--nb-space-6);
+  }
+
+  @media (min-width: 768px) {
+    .nb-section--sm {
+      padding-block: var(--nb-space-8);
+    }
+  }
+
+  .nb-section--lg {
+    padding-block: var(--nb-space-16);
+  }
+
+  @media (min-width: 768px) {
+    .nb-section--lg {
+      padding-block: var(--nb-space-24);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .nb-section--lg {
+      padding-block: var(--nb-space-32);
+    }
+  }
+
+  /* ==================================================================
+     Sized Containers
+     ------------------------------------------------------------------
+     Centered, width-constrained wrappers with inline padding.
+     ================================================================== */
+  .nb-container-sm {
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+    padding-inline: var(--nb-space-4);
+  }
+
+  .nb-container-md {
+    width: 100%;
+    max-width: 768px;
+    margin-inline: auto;
+    padding-inline: var(--nb-space-4);
+  }
+
+  .nb-container-lg {
+    width: 100%;
+    max-width: 1024px;
+    margin-inline: auto;
+    padding-inline: var(--nb-space-4);
+  }
+
+  .nb-container-xl {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--nb-space-4);
+  }
+
+  .nb-container-full {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--nb-space-4);
+  }
+
+  @media (min-width: 768px) {
+    .nb-container-sm,
+    .nb-container-md,
+    .nb-container-lg,
+    .nb-container-xl,
+    .nb-container-full {
+      padding-inline: var(--nb-space-6);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .nb-container-sm,
+    .nb-container-md,
+    .nb-container-lg,
+    .nb-container-xl,
+    .nb-container-full {
+      padding-inline: var(--nb-space-8);
+    }
+  }
+
+  /* ==================================================================
+     Prose
+     ------------------------------------------------------------------
+     Readable-content wrapper: constrains line length to ~65 characters
+     and provides vertical rhythm for all child elements.
+     ================================================================== */
+  .nb-prose {
+    max-width: 65ch;
+    font-size: var(--nb-text-base);
+    line-height: var(--nb-leading-relaxed);
+    color: var(--nb-gray-800);
+  }
+
+  /* Vertical rhythm — all direct children get spacing */
+  .nb-prose > * + * {
+    margin-top: var(--nb-space-5);
+  }
+
+  /* Headings get extra top margin to separate from previous section */
+  .nb-prose > h1 + *,
+  .nb-prose > h2 + *,
+  .nb-prose > h3 + *,
+  .nb-prose > h4 + *,
+  .nb-prose > h5 + *,
+  .nb-prose > h6 + * {
+    margin-top: var(--nb-space-3);
+  }
+
+  .nb-prose > * + h1,
+  .nb-prose > * + h2 {
+    margin-top: var(--nb-space-12);
+  }
+
+  .nb-prose > * + h3,
+  .nb-prose > * + h4 {
+    margin-top: var(--nb-space-8);
+  }
+
+  .nb-prose > * + h5,
+  .nb-prose > * + h6 {
+    margin-top: var(--nb-space-6);
+  }
+
+  /* Prose headings */
+  .nb-prose h1 {
+    font-size: var(--nb-text-4xl);
+    font-weight: var(--nb-font-extrabold);
+    line-height: var(--nb-leading-tight);
+    letter-spacing: var(--nb-tracking-tight);
+    color: var(--nb-black);
+  }
+
+  .nb-prose h2 {
+    font-size: var(--nb-text-3xl);
+    font-weight: var(--nb-font-extrabold);
+    line-height: var(--nb-leading-tight);
+    letter-spacing: var(--nb-tracking-tight);
+    color: var(--nb-black);
+  }
+
+  .nb-prose h3 {
+    font-size: var(--nb-text-2xl);
+    font-weight: var(--nb-font-bold);
+    line-height: var(--nb-leading-snug);
+    color: var(--nb-black);
+  }
+
+  .nb-prose h4 {
+    font-size: var(--nb-text-xl);
+    font-weight: var(--nb-font-bold);
+    line-height: var(--nb-leading-snug);
+    color: var(--nb-black);
+  }
+
+  .nb-prose h5 {
+    font-size: var(--nb-text-lg);
+    font-weight: var(--nb-font-semibold);
+    line-height: var(--nb-leading-snug);
+    color: var(--nb-black);
+  }
+
+  .nb-prose h6 {
+    font-size: var(--nb-text-base);
+    font-weight: var(--nb-font-semibold);
+    line-height: var(--nb-leading-snug);
+    color: var(--nb-gray-700);
+  }
+
+  /* Prose paragraphs */
+  .nb-prose p {
+    margin-top: var(--nb-space-5);
+  }
+
+  .nb-prose p:first-child {
+    margin-top: 0;
+  }
+
+  /* Prose links */
+  .nb-prose a {
+    color: var(--nb-blue-500);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    font-weight: var(--nb-font-medium);
+    transition: color var(--nb-transition-fast);
+  }
+
+  .nb-prose a:hover {
+    color: var(--nb-blue-600);
+  }
+
+  /* Prose strong / emphasis */
+  .nb-prose strong {
+    font-weight: var(--nb-font-bold);
+    color: var(--nb-black);
+  }
+
+  .nb-prose em {
+    font-style: italic;
+  }
+
+  /* Prose lists */
+  .nb-prose ul {
+    list-style-type: disc;
+    padding-left: var(--nb-space-6);
+  }
+
+  .nb-prose ol {
+    list-style-type: decimal;
+    padding-left: var(--nb-space-6);
+  }
+
+  .nb-prose li {
+    margin-top: var(--nb-space-2);
+  }
+
+  .nb-prose li:first-child {
+    margin-top: 0;
+  }
+
+  .nb-prose li > ul,
+  .nb-prose li > ol {
+    margin-top: var(--nb-space-2);
+  }
+
+  /* Prose blockquote */
+  .nb-prose blockquote {
+    border-left: 4px solid var(--nb-black);
+    padding-left: var(--nb-space-4);
+    padding-block: var(--nb-space-1);
+    font-style: italic;
+    color: var(--nb-gray-700);
+  }
+
+  /* Prose code */
+  .nb-prose code {
+    font-family: var(--nb-font-mono);
+    font-size: 0.875em;
+    background-color: var(--nb-gray-100);
+    border: 1px solid var(--nb-gray-200);
+    border-radius: var(--nb-radius);
+    padding: 0.125em 0.375em;
+  }
+
+  .nb-prose pre {
+    font-family: var(--nb-font-mono);
+    font-size: var(--nb-text-sm);
+    line-height: var(--nb-leading-relaxed);
+    background-color: var(--nb-gray-100);
+    border: var(--nb-border);
+    border-radius: var(--nb-radius);
+    padding: var(--nb-space-4);
+    overflow-x: auto;
+  }
+
+  .nb-prose pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    border-radius: 0;
+  }
+
+  /* Prose hr */
+  .nb-prose hr {
+    border: none;
+    border-top: var(--nb-border-thick);
+    margin-block: var(--nb-space-8);
+  }
+
+  /* Prose images */
+  .nb-prose img {
+    border: var(--nb-border);
+    border-radius: var(--nb-radius);
+  }
+
+  /* Prose tables */
+  .nb-prose table {
+    width: 100%;
+    border: var(--nb-border);
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-prose th {
+    font-weight: var(--nb-font-bold);
+    text-align: left;
+    padding: var(--nb-space-2) var(--nb-space-3);
+    border-bottom: var(--nb-border-thick);
+    background-color: var(--nb-gray-50);
+  }
+
+  .nb-prose td {
+    padding: var(--nb-space-2) var(--nb-space-3);
+    border-bottom: 1px solid var(--nb-gray-200);
+  }
+
+  /* Prose figure / figcaption */
+  .nb-prose figure {
+    margin-top: var(--nb-space-8);
+    margin-bottom: var(--nb-space-8);
+  }
+
+  .nb-prose figcaption {
+    font-size: var(--nb-text-sm);
+    color: var(--nb-gray-500);
+    margin-top: var(--nb-space-2);
+  }
+
+  /* ==================================================================
+     Prose — Larger variant
+     ================================================================== */
+  .nb-prose-lg {
+    max-width: 65ch;
+    font-size: var(--nb-text-lg);
+    line-height: var(--nb-leading-relaxed);
+    color: var(--nb-gray-800);
+  }
+
+  .nb-prose-lg > * + * {
+    margin-top: var(--nb-space-6);
+  }
+
+  .nb-prose-lg > * + h2,
+  .nb-prose-lg > * + h3 {
+    margin-top: var(--nb-space-10);
+  }
+
+  /* ==================================================================
+     Prose — Centered variant
+     ================================================================== */
+  .nb-prose-center {
+    margin-inline: auto;
+  }
+}
