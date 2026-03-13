@@ -1,0 +1,103 @@
+@layer components {
+  /* ----------------------------------------------------------------
+     Skeleton – loading placeholders with shimmer animation
+     NB UI Kit · Neo-Brutalism Design System
+  ---------------------------------------------------------------- */
+
+  .nb-skeleton {
+    display: block;
+    background: var(--nb-gray-200);
+    border-radius: var(--nb-radius);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .nb-skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: nb-skeleton-shimmer 1.5s infinite;
+    transform: translateX(-100%);
+  }
+
+  @keyframes nb-skeleton-shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Text line placeholder */
+  .nb-skeleton--text {
+    height: 1em;
+    width: 100%;
+    border-radius: var(--nb-radius);
+    margin-bottom: var(--nb-space-2);
+  }
+
+  .nb-skeleton--text:last-child {
+    width: 60%;
+  }
+
+  /* Heading placeholder */
+  .nb-skeleton--heading {
+    height: 1.5em;
+    width: 40%;
+    margin-bottom: var(--nb-space-4);
+  }
+
+  /* Avatar placeholders */
+  .nb-skeleton--avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+
+  .nb-skeleton--avatar-sm {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nb-skeleton--avatar-lg {
+    width: 64px;
+    height: 64px;
+  }
+
+  /* Card placeholder */
+  .nb-skeleton--card {
+    height: 200px;
+    border: var(--nb-border);
+    border-radius: var(--nb-radius);
+  }
+
+  /* Image placeholder */
+  .nb-skeleton--image {
+    height: 180px;
+    width: 100%;
+  }
+
+  /* Button placeholder */
+  .nb-skeleton--button {
+    height: 44px;
+    width: 120px;
+    border-radius: var(--nb-radius);
+  }
+
+  /* Circle shape */
+  .nb-skeleton--circle {
+    border-radius: 50%;
+  }
+
+  /* Static placeholder – no shimmer */
+  .nb-skeleton--no-animate::after {
+    animation: none;
+  }
+}

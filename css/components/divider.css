@@ -1,0 +1,76 @@
+@layer components {
+  /* ----------------------------------------------------------------
+     Divider – horizontal & vertical separators
+     NB UI Kit · Neo-Brutalism Design System
+  ---------------------------------------------------------------- */
+
+  .nb-divider {
+    border: none;
+    border-top: var(--nb-border);
+    margin-block: var(--nb-space-6);
+    width: 100%;
+  }
+
+  /* Weight variants */
+  .nb-divider--thin {
+    border-top-width: 1px;
+    border-color: var(--nb-gray-200);
+  }
+
+  .nb-divider--thick {
+    border-top: var(--nb-border-thick);
+  }
+
+  /* Style variants */
+  .nb-divider--dashed {
+    border-top-style: dashed;
+  }
+
+  .nb-divider--dotted {
+    border-top-style: dotted;
+  }
+
+  /* Spacing variants */
+  .nb-divider--spaced-sm {
+    margin-block: var(--nb-space-3);
+  }
+
+  .nb-divider--spaced-lg {
+    margin-block: var(--nb-space-10);
+  }
+
+  /* Vertical divider */
+  .nb-divider--vertical {
+    display: inline-block;
+    border-top: none;
+    border-left: var(--nb-border);
+    width: 0;
+    height: 1em;
+    margin-inline: var(--nb-space-3);
+    vertical-align: middle;
+  }
+
+  /* Divider with centered text */
+  .nb-divider--with-text {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-3);
+    border-top: none;
+  }
+
+  .nb-divider--with-text::before,
+  .nb-divider--with-text::after {
+    content: "";
+    flex: 1;
+    border-top: var(--nb-border);
+  }
+
+  .nb-divider__text {
+    font-size: var(--nb-text-xs);
+    color: var(--nb-gray-500);
+    font-weight: var(--nb-font-medium);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}

@@ -36,7 +36,10 @@
     'components/sidebar-toggle.js',
     'components/date-display.js',
     'components/calendar.js',
-    'components/search.js'
+    'components/search.js',
+    'components/drawer.js',
+    'components/stepper.js',
+    'components/tag-input.js'
   ];
 
   scripts.forEach(function (src) {

@@ -1869,7 +1869,506 @@ NB.toast.success('Your changes have been saved.');</code></pre>
 
 
 <!-- ============================================================
-     30. FOOTER
+     30. SKELETON LOADERS
+     ============================================================ -->
+<section id="skeleton" class="nb-section nb-bg-white">
+  <div class="nb-container">
+    <h2 class="section-heading">Skeleton Loaders</h2>
+    <p class="section-description">Placeholder shimmer animations for content loading states — text, headings, avatars, cards, images, and buttons.</p>
+
+    <h3 class="subsection-title">Text &amp; Heading</h3>
+    <div class="nb-mb-8" style="max-width:400px;">
+      <div class="nb-skeleton nb-skeleton--heading"></div>
+      <div class="nb-skeleton nb-skeleton--text"></div>
+      <div class="nb-skeleton nb-skeleton--text"></div>
+      <div class="nb-skeleton nb-skeleton--text"></div>
+    </div>
+
+    <h3 class="subsection-title">Avatars</h3>
+    <div class="component-row nb-mb-8">
+      <div class="nb-skeleton nb-skeleton--avatar-sm"></div>
+      <div class="nb-skeleton nb-skeleton--avatar"></div>
+      <div class="nb-skeleton nb-skeleton--avatar-lg"></div>
+    </div>
+
+    <h3 class="subsection-title">Cards &amp; Buttons</h3>
+    <div class="nb-flex nb-gap-6 nb-flex-wrap nb-mb-8">
+      <div class="nb-skeleton nb-skeleton--card" style="width:260px;"></div>
+      <div>
+        <div class="nb-skeleton nb-skeleton--button nb-mb-3"></div>
+        <div class="nb-skeleton nb-skeleton--image" style="width:200px;"></div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Card Placeholder Composition</h3>
+    <div class="nb-card" style="max-width:320px;">
+      <div class="nb-card__body">
+        <div class="nb-skeleton nb-skeleton--image nb-mb-4" style="border-radius:var(--nb-radius);"></div>
+        <div class="nb-flex nb-items-center nb-gap-3 nb-mb-4">
+          <div class="nb-skeleton nb-skeleton--avatar-sm"></div>
+          <div style="flex:1;">
+            <div class="nb-skeleton nb-skeleton--text" style="width:60%;margin-bottom:4px;"></div>
+            <div class="nb-skeleton nb-skeleton--text" style="width:40%;height:0.75em;"></div>
+          </div>
+        </div>
+        <div class="nb-skeleton nb-skeleton--text"></div>
+        <div class="nb-skeleton nb-skeleton--text"></div>
+        <div class="nb-skeleton nb-skeleton--text" style="width:75%;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     31. SPINNERS
+     ============================================================ -->
+<section id="spinners" class="nb-section nb-bg-gray-50">
+  <div class="nb-container">
+    <h2 class="section-heading">Spinners</h2>
+    <p class="section-description">Animated loading indicators in multiple sizes and colors. Use standalone or inside overlay containers.</p>
+
+    <h3 class="subsection-title">Sizes</h3>
+    <div class="component-row nb-mb-8">
+      <span class="nb-spinner nb-spinner--sm"></span>
+      <span class="nb-spinner"></span>
+      <span class="nb-spinner nb-spinner--lg"></span>
+      <span class="nb-spinner nb-spinner--xl"></span>
+    </div>
+
+    <h3 class="subsection-title">Colors</h3>
+    <div class="component-row nb-mb-8">
+      <span class="nb-spinner"></span>
+      <span class="nb-spinner nb-spinner--primary"></span>
+      <span class="nb-spinner nb-spinner--success"></span>
+      <span class="nb-spinner nb-spinner--danger"></span>
+      <span style="background:var(--nb-black);padding:8px;border-radius:var(--nb-radius);display:inline-flex;">
+        <span class="nb-spinner nb-spinner--white"></span>
+      </span>
+    </div>
+
+    <h3 class="subsection-title">Loading State</h3>
+    <div class="nb-loading nb-border nb-rounded nb-p-8" style="max-width:300px;">
+      <span class="nb-spinner nb-spinner--lg"></span>
+      <span class="nb-loading__text">Loading data...</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     32. EMPTY STATES
+     ============================================================ -->
+<section id="empty-states" class="nb-section nb-bg-white">
+  <div class="nb-container">
+    <h2 class="section-heading">Empty States</h2>
+    <p class="section-description">Placeholder displays for when there's no data to show — with icon, message, and optional action.</p>
+
+    <div class="nb-grid nb-grid-cols-1 md:nb-grid-cols-2 nb-gap-6">
+      <!-- Default -->
+      <div class="nb-card">
+        <div class="nb-empty-state">
+          <div class="nb-empty-state__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="nb-empty-state__title">No projects yet</h3>
+          <p class="nb-empty-state__description">Create your first project to get started building with NB UI Kit.</p>
+          <div class="nb-empty-state__action">
+            <button class="nb-btn nb-btn--primary">Create project</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bordered / dashed -->
+      <div class="nb-empty-state nb-empty-state--bordered">
+        <div class="nb-empty-state__icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3 class="nb-empty-state__title">No results found</h3>
+        <p class="nb-empty-state__description">Try adjusting your search or filter to find what you're looking for.</p>
+        <div class="nb-empty-state__action">
+          <button class="nb-btn nb-btn--outline">Clear filters</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     33. DIVIDERS
+     ============================================================ -->
+<section id="dividers" class="nb-section nb-bg-gray-50">
+  <div class="nb-container">
+    <h2 class="section-heading">Dividers</h2>
+    <p class="section-description">Horizontal and vertical separators in multiple styles — solid, dashed, dotted, thin, thick, and with text labels.</p>
+
+    <div style="max-width:500px;">
+      <h3 class="subsection-title">Styles</h3>
+      <p class="nb-text-sm nb-text-gray-600">Default (2px solid)</p>
+      <hr class="nb-divider">
+      <p class="nb-text-sm nb-text-gray-600">Thin</p>
+      <hr class="nb-divider nb-divider--thin">
+      <p class="nb-text-sm nb-text-gray-600">Thick</p>
+      <hr class="nb-divider nb-divider--thick">
+      <p class="nb-text-sm nb-text-gray-600">Dashed</p>
+      <hr class="nb-divider nb-divider--dashed">
+      <p class="nb-text-sm nb-text-gray-600">Dotted</p>
+      <hr class="nb-divider nb-divider--dotted">
+
+      <h3 class="subsection-title">With Text</h3>
+      <div class="nb-divider nb-divider--with-text">
+        <span class="nb-divider__text">Or continue with</span>
+      </div>
+
+      <h3 class="subsection-title">Vertical</h3>
+      <div class="nb-flex nb-items-center nb-gap-2">
+        <span class="nb-text-sm">Home</span>
+        <span class="nb-divider nb-divider--vertical" style="height:20px;"></span>
+        <span class="nb-text-sm">Dashboard</span>
+        <span class="nb-divider nb-divider--vertical" style="height:20px;"></span>
+        <span class="nb-text-sm">Settings</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     34. STAT CARDS
+     ============================================================ -->
+<section id="stat-cards" class="nb-section nb-bg-white">
+  <div class="nb-container">
+    <h2 class="section-heading">Stat Cards</h2>
+    <p class="section-description">KPI and metric display cards for dashboards — with labels, values, change indicators, and accent colors.</p>
+
+    <h3 class="subsection-title">Default Grid</h3>
+    <div class="nb-grid nb-grid-cols-1 sm:nb-grid-cols-2 lg:nb-grid-cols-4 nb-gap-4 nb-mb-8">
+      <div class="nb-stat">
+        <span class="nb-stat__label">Total Revenue</span>
+        <span class="nb-stat__value">$45,231</span>
+        <span class="nb-stat__change nb-stat__change--up">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+          +20.1%
+        </span>
+      </div>
+      <div class="nb-stat">
+        <span class="nb-stat__label">Subscribers</span>
+        <span class="nb-stat__value">2,350</span>
+        <span class="nb-stat__change nb-stat__change--up">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+          +12.5%
+        </span>
+      </div>
+      <div class="nb-stat">
+        <span class="nb-stat__label">Bounce Rate</span>
+        <span class="nb-stat__value">24.3%</span>
+        <span class="nb-stat__change nb-stat__change--down">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg>
+          -3.2%
+        </span>
+      </div>
+      <div class="nb-stat">
+        <span class="nb-stat__label">Active Users</span>
+        <span class="nb-stat__value">1,429</span>
+        <span class="nb-stat__change nb-stat__change--up">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+          +8.7%
+        </span>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Accent Variants</h3>
+    <div class="nb-grid nb-grid-cols-1 sm:nb-grid-cols-2 lg:nb-grid-cols-4 nb-gap-4">
+      <div class="nb-stat nb-stat--accent-yellow">
+        <span class="nb-stat__label">Revenue</span>
+        <span class="nb-stat__value">$12.4k</span>
+      </div>
+      <div class="nb-stat nb-stat--accent-green">
+        <span class="nb-stat__label">Growth</span>
+        <span class="nb-stat__value">+34%</span>
+      </div>
+      <div class="nb-stat nb-stat--accent-blue">
+        <span class="nb-stat__label">Users</span>
+        <span class="nb-stat__value">8,901</span>
+      </div>
+      <div class="nb-stat nb-stat--accent-red">
+        <span class="nb-stat__label">Errors</span>
+        <span class="nb-stat__value">12</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     35. TIMELINE
+     ============================================================ -->
+<section id="timeline" class="nb-section nb-bg-gray-50">
+  <div class="nb-container">
+    <h2 class="section-heading">Timeline</h2>
+    <p class="section-description">Vertical event timeline for activity history, changelogs, or milestones — with dot color variants and hover effects.</p>
+
+    <div style="max-width:500px;">
+      <div class="nb-timeline">
+        <div class="nb-timeline__item">
+          <div class="nb-timeline__dot nb-timeline__dot--success"></div>
+          <div class="nb-timeline__content">
+            <div class="nb-timeline__title">Deployment successful</div>
+            <div class="nb-timeline__description">v2.4.0 deployed to production. All health checks passing.</div>
+            <div class="nb-timeline__time">2 hours ago</div>
+          </div>
+        </div>
+        <div class="nb-timeline__item">
+          <div class="nb-timeline__dot nb-timeline__dot--warning"></div>
+          <div class="nb-timeline__content">
+            <div class="nb-timeline__title">Build warning</div>
+            <div class="nb-timeline__description">3 deprecation warnings in build output. No breaking changes.</div>
+            <div class="nb-timeline__time">5 hours ago</div>
+          </div>
+        </div>
+        <div class="nb-timeline__item">
+          <div class="nb-timeline__dot nb-timeline__dot--filled"></div>
+          <div class="nb-timeline__content">
+            <div class="nb-timeline__title">Pull request merged</div>
+            <div class="nb-timeline__description">PR #142 "Add skeleton loader component" merged by @sarah.</div>
+            <div class="nb-timeline__time">Yesterday</div>
+          </div>
+        </div>
+        <div class="nb-timeline__item">
+          <div class="nb-timeline__dot nb-timeline__dot--danger"></div>
+          <div class="nb-timeline__content">
+            <div class="nb-timeline__title">Test failure</div>
+            <div class="nb-timeline__description">Integration tests failed on staging. Rolled back to v2.3.1.</div>
+            <div class="nb-timeline__time">2 days ago</div>
+          </div>
+        </div>
+        <div class="nb-timeline__item">
+          <div class="nb-timeline__dot"></div>
+          <div class="nb-timeline__content">
+            <div class="nb-timeline__title">Project created</div>
+            <div class="nb-timeline__description">NB UI Kit repository initialized.</div>
+            <div class="nb-timeline__time">1 week ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     36. DRAWER
+     ============================================================ -->
+<section id="drawer" class="nb-section nb-bg-white">
+  <div class="nb-container">
+    <h2 class="section-heading">Drawer</h2>
+    <p class="section-description">Slide-over panel overlays from the right or left — an alternative to modals for forms, details, and navigation.</p>
+
+    <div class="component-row">
+      <button class="nb-btn nb-btn--primary" data-nb-drawer-open="demo-drawer-right">Open Right Drawer</button>
+      <button class="nb-btn nb-btn--outline" data-nb-drawer-open="demo-drawer-left">Open Left Drawer</button>
+    </div>
+
+    <!-- Right Drawer -->
+    <div class="nb-drawer" id="demo-drawer-right">
+      <div class="nb-drawer__header">
+        <h3 class="nb-drawer__title">Drawer Title</h3>
+        <button class="nb-drawer__close" data-nb-drawer-close aria-label="Close drawer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nb-drawer__body">
+        <p class="nb-text-sm nb-text-gray-600 nb-mb-4">This is a drawer panel sliding in from the right. It's perfect for forms, detail views, or secondary navigation.</p>
+        <div class="nb-field">
+          <label class="nb-label">Name</label>
+          <input type="text" class="nb-input" placeholder="Enter name">
+        </div>
+        <div class="nb-field">
+          <label class="nb-label">Email</label>
+          <input type="email" class="nb-input" placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="nb-drawer__footer">
+        <button class="nb-btn nb-btn--outline" data-nb-drawer-close>Cancel</button>
+        <button class="nb-btn nb-btn--primary">Save</button>
+      </div>
+    </div>
+
+    <!-- Left Drawer -->
+    <div class="nb-drawer nb-drawer--left" id="demo-drawer-left">
+      <div class="nb-drawer__header">
+        <h3 class="nb-drawer__title">Navigation</h3>
+        <button class="nb-drawer__close" data-nb-drawer-close aria-label="Close drawer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="nb-drawer__body">
+        <nav class="nb-flex nb-flex-col nb-gap-2">
+          <a href="#" class="nb-btn nb-btn--ghost" style="justify-content:flex-start;">Dashboard</a>
+          <a href="#" class="nb-btn nb-btn--ghost" style="justify-content:flex-start;">Projects</a>
+          <a href="#" class="nb-btn nb-btn--ghost" style="justify-content:flex-start;">Team</a>
+          <a href="#" class="nb-btn nb-btn--ghost" style="justify-content:flex-start;">Settings</a>
+        </nav>
+      </div>
+    </div>
+    <div class="nb-drawer-backdrop" data-nb-drawer-backdrop></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     37. STEPPER
+     ============================================================ -->
+<section id="stepper" class="nb-section nb-bg-gray-50">
+  <div class="nb-container">
+    <h2 class="section-heading">Stepper</h2>
+    <p class="section-description">Multi-step navigation for wizards, onboarding flows, and checkout processes — horizontal and vertical variants.</p>
+
+    <h3 class="subsection-title">Horizontal</h3>
+    <div class="nb-stepper nb-mb-8" data-nb-stepper data-nb-stepper-active="2" style="max-width:600px;">
+      <div class="nb-stepper__step">
+        <span class="nb-stepper__indicator">1</span>
+        <span class="nb-stepper__label">Account</span>
+      </div>
+      <div class="nb-stepper__step">
+        <span class="nb-stepper__indicator">2</span>
+        <span class="nb-stepper__label">Profile</span>
+      </div>
+      <div class="nb-stepper__step">
+        <span class="nb-stepper__indicator">3</span>
+        <span class="nb-stepper__label">Review</span>
+      </div>
+      <div class="nb-stepper__step">
+        <span class="nb-stepper__indicator">4</span>
+        <span class="nb-stepper__label">Complete</span>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Vertical</h3>
+    <div class="nb-stepper nb-stepper--vertical" data-nb-stepper data-nb-stepper-active="3" style="max-width:300px;">
+      <div class="nb-stepper__step">
+        <span class="nb-stepper__indicator">1</span>
+        <span class="nb-stepper__label">Create account</span>
+      </div>
+      <div class="nb-stepper__step">
+        <span class="nb-stepper__indicator">2</span>
+        <span class="nb-stepper__label">Set up profile</span>
+      </div>
+      <div class="nb-stepper__step">
+        <span class="nb-stepper__indicator">3</span>
+        <span class="nb-stepper__label">Choose plan</span>
+      </div>
+      <div class="nb-stepper__step">
+        <span class="nb-stepper__indicator">4</span>
+        <span class="nb-stepper__label">Start building</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     38. TAG INPUT
+     ============================================================ -->
+<section id="tag-input" class="nb-section nb-bg-white">
+  <div class="nb-container">
+    <h2 class="section-heading">Tag Input</h2>
+    <p class="section-description">Multi-value input with removable tags/chips — type and press Enter or comma to add tags. Backspace removes the last one.</p>
+
+    <div style="max-width:480px;">
+      <h3 class="subsection-title">Default</h3>
+      <div class="nb-field nb-mb-8">
+        <label class="nb-label">Tags</label>
+        <div class="nb-tag-input" data-nb-tag-input>
+          <span class="nb-tag-input__tag">Design<button class="nb-tag-input__tag-remove" aria-label="Remove">&times;</button></span>
+          <span class="nb-tag-input__tag">CSS<button class="nb-tag-input__tag-remove" aria-label="Remove">&times;</button></span>
+          <span class="nb-tag-input__tag">Brutalism<button class="nb-tag-input__tag-remove" aria-label="Remove">&times;</button></span>
+          <input type="text" class="nb-tag-input__input" placeholder="Add a tag...">
+        </div>
+      </div>
+
+      <h3 class="subsection-title">With Max Limit (5 tags)</h3>
+      <div class="nb-field">
+        <label class="nb-label">Skills</label>
+        <div class="nb-tag-input" data-nb-tag-input data-nb-tag-input-max="5">
+          <span class="nb-tag-input__tag">JavaScript<button class="nb-tag-input__tag-remove" aria-label="Remove">&times;</button></span>
+          <span class="nb-tag-input__tag">React<button class="nb-tag-input__tag-remove" aria-label="Remove">&times;</button></span>
+          <input type="text" class="nb-tag-input__input" placeholder="Add skill...">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     39. RANGE SLIDER
+     ============================================================ -->
+<section id="range" class="nb-section nb-bg-gray-50">
+  <div class="nb-container">
+    <h2 class="section-heading">Range Slider</h2>
+    <p class="section-description">Styled range input with value display — grab the thumb and drag to select a value.</p>
+
+    <div style="max-width:400px;">
+      <h3 class="subsection-title">Default</h3>
+      <div class="nb-range nb-mb-8">
+        <div class="nb-range__label">
+          <span class="nb-range__label-text">Volume</span>
+          <span class="nb-range__value" id="range-demo-value">50</span>
+        </div>
+        <input type="range" class="nb-range__input" min="0" max="100" value="50" id="range-demo">
+      </div>
+
+      <h3 class="subsection-title">With Ticks</h3>
+      <div class="nb-range nb-mb-8">
+        <div class="nb-range__label">
+          <span class="nb-range__label-text">Price range</span>
+          <span class="nb-range__value" id="range-price-value">$50</span>
+        </div>
+        <input type="range" class="nb-range__input" min="0" max="200" value="50" step="10" id="range-price">
+        <div class="nb-range__ticks">
+          <span>$0</span>
+          <span>$50</span>
+          <span>$100</span>
+          <span>$150</span>
+          <span>$200</span>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Small</h3>
+      <div class="nb-range nb-range--sm">
+        <div class="nb-range__label">
+          <span class="nb-range__label-text">Opacity</span>
+          <span class="nb-range__value" id="range-sm-value">75%</span>
+        </div>
+        <input type="range" class="nb-range__input" min="0" max="100" value="75" id="range-sm">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Inline script for range value displays -->
+<script>
+(function() {
+  function bindRange(inputId, valueId, prefix, suffix) {
+    var input = document.getElementById(inputId);
+    var display = document.getElementById(valueId);
+    if (!input || !display) return;
+    input.addEventListener('input', function() {
+      display.textContent = (prefix || '') + input.value + (suffix || '');
+    });
+  }
+  bindRange('range-demo', 'range-demo-value', '', '');
+  bindRange('range-price', 'range-price-value', '$', '');
+  bindRange('range-sm', 'range-sm-value', '', '%');
+})();
+</script>
+
+
+<!-- ============================================================
+     40. FOOTER
      ============================================================ -->
 <footer class="nb-footer nb-footer--dark">
   <div class="nb-container">
