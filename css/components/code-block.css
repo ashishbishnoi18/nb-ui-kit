@@ -72,10 +72,17 @@
   /* --------------------------------------------------------------------------
      Code Area
      -------------------------------------------------------------------------- */
+  .nb-code-block pre,
+  .nb-code-block pre[class*="language-"],
+  .nb-code-block code,
+  .nb-code-block code[class*="language-"] {
+    font-family: var(--nb-font-mono) !important;
+  }
+
   .nb-code-block pre {
     margin: 0;
     padding: var(--nb-space-4);
-    background-color: var(--nb-gray-900);
+    background-color: var(--nb-gray-900) !important;
     color: var(--nb-gray-300);
     overflow-x: auto;
     border: none;
@@ -86,7 +93,7 @@
   }
 
   .nb-code-block pre code {
-    background: none;
+    background: none !important;
     border: none;
     padding: 0;
     font-size: inherit;
@@ -162,7 +169,7 @@
   }
 
   .nb-code-block--light pre {
-    background-color: var(--nb-gray-50);
+    background-color: var(--nb-gray-50) !important;
     color: var(--nb-gray-800);
   }
 
