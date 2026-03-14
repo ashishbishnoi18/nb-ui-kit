@@ -59,6 +59,7 @@
 @import "components/stepper.css";
 @import "components/tag-input.css";
 @import "components/range.css";
+@import "components/code-block.css";
 
 /* Utilities (last — highest specificity via layers) */
 @import "utilities.css";

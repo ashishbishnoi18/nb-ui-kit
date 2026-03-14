@@ -39,7 +39,8 @@
     'components/search.js',
     'components/drawer.js',
     'components/stepper.js',
-    'components/tag-input.js'
+    'components/tag-input.js',
+    'components/code-block.js'
   ];
 
   scripts.forEach(function (src) {

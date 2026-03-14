@@ -340,6 +340,7 @@
   <a href="#progress" class="showcase-sidebar__link">Progress</a>
 
   <div class="showcase-sidebar__group">Content</div>
+  <a href="#code-blocks" class="showcase-sidebar__link">Code Blocks</a>
   <a href="#media" class="showcase-sidebar__link">Media</a>
   <a href="#links" class="showcase-sidebar__link">Links</a>
   <a href="#link-preview" class="showcase-sidebar__link">Link Preview</a>
@@ -2527,7 +2528,89 @@ NB.toast.success('Your changes have been saved.');</code></pre>
 
 
 <!-- ============================================================
-     40. FOOTER
+     40. CODE BLOCKS
+     ============================================================ -->
+<section id="code-blocks" class="nb-section nb-bg-white">
+  <div class="nb-container">
+    <h2 class="section-heading">Code Blocks</h2>
+    <p class="section-description">Styled code display with syntax highlighting, copy button, line numbers, and light/dark themes. Pairs with Prism.js.</p>
+
+    <h3 class="subsection-title">Dark Theme (Default)</h3>
+    <div class="nb-code-block nb-mb-8" data-nb-code-block>
+      <div class="nb-code-block__header">
+        <span class="nb-code-block__lang">HTML</span>
+        <button class="nb-code-block__copy">Copy</button>
+      </div>
+      <pre><code class="language-html">&lt;div class="nb-card"&gt;
+  &lt;div class="nb-card__header"&gt;
+    &lt;h3&gt;Card Title&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="nb-card__body"&gt;
+    &lt;p&gt;Card content goes here.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="nb-card__footer"&gt;
+    &lt;button class="nb-btn nb-btn--primary"&gt;Action&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <h3 class="subsection-title">Light Theme</h3>
+    <div class="nb-code-block nb-code-block--light nb-mb-8" data-nb-code-block>
+      <div class="nb-code-block__header">
+        <span class="nb-code-block__lang">CSS</span>
+        <button class="nb-code-block__copy">Copy</button>
+      </div>
+      <pre><code class="language-css">:root {
+  --nb-black: #000000;
+  --nb-yellow-500: #FAFF00;
+  --nb-green-500: #00FF00;
+  --nb-border: 2px solid var(--nb-black);
+  --nb-shadow-md: 4px 4px 0 var(--nb-black);
+}</code></pre>
+    </div>
+
+    <h3 class="subsection-title">With Line Numbers</h3>
+    <div class="nb-code-block nb-code-block--numbered nb-mb-8" data-nb-code-block>
+      <div class="nb-code-block__header">
+        <span class="nb-code-block__lang">JavaScript</span>
+        <button class="nb-code-block__copy">Copy</button>
+      </div>
+      <pre><code class="language-javascript"><span class="nb-code-line">NB.register('my-component', function (el) {</span>
+<span class="nb-code-line">  var btn = NB.$('.trigger', el);</span>
+<span class="nb-code-line">  NB.on(btn, 'click', function () {</span>
+<span class="nb-code-line">    el.classList.toggle('is-active');</span>
+<span class="nb-code-line">    NB.emit(el, 'nb:toggle', { active: true });</span>
+<span class="nb-code-line">  });</span>
+<span class="nb-code-line">});</span></code></pre>
+    </div>
+
+    <h3 class="subsection-title">Compact</h3>
+    <div class="nb-code-block nb-code-block--compact nb-mb-8" data-nb-code-block style="max-width: 480px;">
+      <div class="nb-code-block__header">
+        <span class="nb-code-block__lang">Bash</span>
+        <button class="nb-code-block__copy">Copy</button>
+      </div>
+      <pre><code class="language-bash">npm install nb-ui-kit</code></pre>
+    </div>
+
+    <h3 class="subsection-title">No Header</h3>
+    <div class="nb-code-block nb-code-block--no-header" data-nb-code-block style="max-width: 480px;">
+      <pre><code class="language-html">&lt;link rel="stylesheet" href="dist/nb-ui-kit.min.css"&gt;
+&lt;script src="dist/nb-ui-kit.min.js"&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <h3 class="subsection-title" style="margin-top: var(--nb-space-8);">Inline Code</h3>
+    <p class="nb-text-base nb-text-gray-700">
+      Use the <code class="nb-code-inline">nb-code-inline</code> class for inline references like
+      <code class="nb-code-inline">var(--nb-yellow-500)</code> or
+      <code class="nb-code-inline">.nb-btn--primary</code>.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     41. FOOTER
      ============================================================ -->
 <footer class="nb-footer nb-footer--dark">
   <div class="nb-container">
