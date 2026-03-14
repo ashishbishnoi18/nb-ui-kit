@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — NB UI Kit</title>
+  <link rel="stylesheet" href="../css/nb-all.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--nb-font-sans); background: var(--nb-white); color: var(--nb-black); }
+
+    /* Centered column */
+    .minimal-main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Greeting */
+    .greeting {
+      margin-bottom: 48px;
+    }
+    .greeting__hello {
+      font-size: var(--nb-text-4xl);
+      font-weight: var(--nb-font-bold);
+      font-family: var(--nb-font-heading);
+      line-height: var(--nb-leading-tight);
+      margin: 0 0 8px;
+    }
+    .greeting__date {
+      font-size: var(--nb-text-sm);
+      color: var(--nb-gray-500);
+      margin-bottom: 20px;
+    }
+    .greeting__quote {
+      margin: 0;
+      padding: 16px 20px;
+      border-left: 4px solid #000;
+      font-style: italic;
+      font-size: var(--nb-text-base);
+      color: var(--nb-gray-600);
+      line-height: var(--nb-leading-relaxed);
+      background: var(--nb-gray-50);
+    }
+
+    /* Section heading */
+    .section-heading {
+      font-size: var(--nb-text-xs);
+      font-weight: var(--nb-font-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--nb-gray-400);
+      margin-bottom: 16px;
+    }
+
+    /* Focus / Tasks */
+    .focus-section {
+      margin-bottom: 48px;
+    }
+    .task-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border: 2px solid #000;
+      border-radius: var(--nb-radius);
+      margin-bottom: 10px;
+      background: var(--nb-white);
+      cursor: pointer;
+      transition: box-shadow var(--nb-transition-fast), transform var(--nb-transition-fast);
+      user-select: none;
+    }
+    .task-item:hover {
+      box-shadow: var(--nb-shadow-sm);
+      transform: translate(-2px, -2px);
+    }
+    .task-item__checkbox {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #000;
+      border-radius: 3px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--nb-white);
+      transition: background var(--nb-transition-fast);
+    }
+    .task-item.is-done .task-item__checkbox {
+      background: var(--nb-green-500);
+    }
+    .task-item.is-done .task-item__checkbox::after {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 10px;
+      border: solid #000;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      margin-top: -2px;
+    }
+    .task-item.is-done .task-item__text {
+      text-decoration: line-through;
+      color: var(--nb-gray-400);
+    }
+    .task-item__text {
+      font-size: var(--nb-text-base);
+      font-weight: var(--nb-font-medium);
+    }
+
+    /* Quick stats */
+    .quick-stats {
+      display: flex;
+      gap: 0;
+      margin-bottom: 48px;
+      border-top: 1px solid var(--nb-gray-200);
+      border-bottom: 1px solid var(--nb-gray-200);
+    }
+    .quick-stat {
+      flex: 1;
+      padding: 24px 0;
+      text-align: center;
+    }
+    .quick-stat + .quick-stat {
+      border-left: 1px solid var(--nb-gray-200);
+    }
+    .quick-stat__value {
+      font-size: var(--nb-text-3xl);
+      font-weight: var(--nb-font-extrabold);
+      font-family: var(--nb-font-heading);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .quick-stat__label {
+      font-size: var(--nb-text-xs);
+      color: var(--nb-gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: var(--nb-font-medium);
+    }
+
+    /* Recent activity */
+    .recent-section {
+      margin-bottom: 48px;
+    }
+    .recent-item {
+      display: flex;
+      gap: 24px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--nb-gray-100);
+      font-size: var(--nb-text-sm);
+    }
+    .recent-item:last-child { border-bottom: none; }
+    .recent-item__time {
+      color: var(--nb-gray-400);
+      font-family: var(--nb-font-mono);
+      font-size: var(--nb-text-xs);
+      white-space: nowrap;
+      min-width: 64px;
+      padding-top: 2px;
+    }
+    .recent-item__desc {
+      color: var(--nb-gray-700);
+      line-height: var(--nb-leading-normal);
+    }
+
+    /* Quick actions */
+    .quick-actions {
+      display: flex;
+      gap: 16px;
+    }
+    .quick-action {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 28px 16px;
+      border: 2px solid #000;
+      border-radius: var(--nb-radius);
+      background: var(--nb-white);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow var(--nb-transition-fast), transform var(--nb-transition-fast), background var(--nb-transition-fast);
+    }
+    .quick-action:hover {
+      box-shadow: var(--nb-shadow-md);
+      transform: translate(-4px, -4px);
+    }
+    .quick-action__icon {
+      width: 48px;
+      height: 48px;
+      border: 2px solid #000;
+      border-radius: var(--nb-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quick-action__label {
+      font-size: var(--nb-text-sm);
+      font-weight: var(--nb-font-semibold);
+    }
+
+    @media (max-width: 640px) {
+      .minimal-main { padding: 32px 16px 48px; }
+      .greeting__hello { font-size: var(--nb-text-3xl); }
+      .quick-stat__value { font-size: var(--nb-text-2xl); }
+      .quick-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG Icons -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+    <symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-bar-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     TOP BAR NAV
+     ============================================================ -->
+<header style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:2px solid #000;background:#fff;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="../index.html" style="text-decoration:none;color:#000;display:flex;align-items:center;gap:8px;">
+      <span style="background:#00FF00;border:2px solid #000;border-radius:4px;padding:2px 6px;font-weight:800;font-size:12px;line-height:1;">NB</span>
+    </a>
+    <span style="color:#D1D5DB;">|</span>
+    <h1 style="font-size:18px;font-weight:700;font-family:'Space Grotesk',sans-serif;">Home</h1>
+  </div>
+  <nav style="display:flex;gap:8px;align-items:center;">
+    <a href="dashboard.html" class="nb-btn nb-btn--ghost nb-btn--sm">Overview</a>
+    <a href="dashboard-analytics.html" class="nb-btn nb-btn--ghost nb-btn--sm">Analytics</a>
+    <a href="dashboard-crm.html" class="nb-btn nb-btn--ghost nb-btn--sm">CRM</a>
+    <a href="settings.html" class="nb-btn nb-btn--ghost nb-btn--sm">Settings</a>
+  </nav>
+</header>
+
+
+<!-- ============================================================
+     MINIMAL DASHBOARD CONTENT
+     ============================================================ -->
+<div class="minimal-main">
+
+  <!-- Greeting -->
+  <div class="greeting">
+    <h1 class="greeting__hello">Good morning, John</h1>
+    <p class="greeting__date">Friday, March 14, 2026</p>
+    <blockquote class="greeting__quote">
+      "The best way to predict the future is to invent it." -- Alan Kay
+    </blockquote>
+  </div>
+
+
+  <!-- Today's Focus -->
+  <div class="focus-section">
+    <div class="section-heading">Today's Focus</div>
+    <div class="task-item" data-task>
+      <div class="task-item__checkbox"></div>
+      <span class="task-item__text">Review Q1 analytics report</span>
+    </div>
+    <div class="task-item" data-task>
+      <div class="task-item__checkbox"></div>
+      <span class="task-item__text">Prepare team standup notes</span>
+    </div>
+    <div class="task-item" data-task>
+      <div class="task-item__checkbox"></div>
+      <span class="task-item__text">Ship sidebar component</span>
+    </div>
+  </div>
+
+
+  <!-- Quick Stats -->
+  <div class="quick-stats">
+    <div class="quick-stat">
+      <div class="quick-stat__value">$12.4k</div>
+      <div class="quick-stat__label">Revenue</div>
+    </div>
+    <div class="quick-stat">
+      <div class="quick-stat__value">94</div>
+      <div class="quick-stat__label">Tasks Done</div>
+    </div>
+    <div class="quick-stat">
+      <div class="quick-stat__value">4.8&#9733;</div>
+      <div class="quick-stat__label">Rating</div>
+    </div>
+  </div>
+
+
+  <!-- Recent Activity -->
+  <div class="recent-section">
+    <div class="section-heading">Recent Activity</div>
+    <div class="recent-item">
+      <span class="recent-item__time">2m ago</span>
+      <span class="recent-item__desc">Deployed v2.4.1 to production -- sidebar hotfix applied</span>
+    </div>
+    <div class="recent-item">
+      <span class="recent-item__time">1h ago</span>
+      <span class="recent-item__desc">Elena Petrov commented on the pricing page redesign proposal</span>
+    </div>
+    <div class="recent-item">
+      <span class="recent-item__time">3h ago</span>
+      <span class="recent-item__desc">Merged pull request #142: Add timeline component to design system</span>
+    </div>
+    <div class="recent-item">
+      <span class="recent-item__time">5h ago</span>
+      <span class="recent-item__desc">New team member James Chen accepted the invite and joined the workspace</span>
+    </div>
+    <div class="recent-item">
+      <span class="recent-item__time">1d ago</span>
+      <span class="recent-item__desc">Q1 analytics report was generated and shared with stakeholders</span>
+    </div>
+  </div>
+
+
+  <!-- Quick Actions -->
+  <div>
+    <div class="section-heading">Quick Actions</div>
+    <div class="quick-actions">
+      <a href="#" class="quick-action">
+        <div class="quick-action__icon" style="background:var(--nb-green-500);">
+          <svg width="24" height="24"><use href="#icon-plus"/></svg>
+        </div>
+        <span class="quick-action__label">New Project</span>
+      </a>
+      <a href="#" class="quick-action">
+        <div class="quick-action__icon" style="background:var(--nb-blue-500);color:#fff;">
+          <svg width="24" height="24"><use href="#icon-users"/></svg>
+        </div>
+        <span class="quick-action__label">Invite Team</span>
+      </a>
+      <a href="#" class="quick-action">
+        <div class="quick-action__icon" style="background:var(--nb-yellow-300);">
+          <svg width="24" height="24"><use href="#icon-bar-chart"/></svg>
+        </div>
+        <span class="quick-action__label">View Reports</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script src="../js/nb-all.js"></script>
+<script>
+  // Task checkbox toggle
+  document.querySelectorAll('[data-task]').forEach(task => {
+    task.addEventListener('click', () => {
+      task.classList.toggle('is-done');
+    });
+  });
+</script>
+</body>
+</html>

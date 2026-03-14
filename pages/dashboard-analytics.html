@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics — NB UI Kit</title>
+  <link rel="stylesheet" href="../css/nb-all.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--nb-font-sans); background: var(--nb-white); color: var(--nb-black); }
+
+    /* Stats strip */
+    .stats-strip {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 2px solid #000;
+    }
+    .stats-strip__item {
+      flex: 1;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stats-strip__item + .stats-strip__item {
+      border-left: 2px solid #000;
+    }
+    .stats-strip__label {
+      font-size: var(--nb-text-xs);
+      color: var(--nb-gray-500);
+      font-weight: var(--nb-font-medium);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .stats-strip__row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .stats-strip__value {
+      font-size: var(--nb-text-2xl);
+      font-weight: var(--nb-font-extrabold);
+      font-family: var(--nb-font-heading);
+    }
+    .stats-strip__change {
+      font-size: var(--nb-text-xs);
+      font-weight: var(--nb-font-bold);
+    }
+    .stats-strip__change--up { color: var(--nb-green-600); }
+    .stats-strip__change--down { color: var(--nb-red-500); }
+
+    /* Chart section */
+    .chart-section {
+      padding: 0;
+      background: var(--nb-white);
+    }
+    .chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--nb-gray-200);
+    }
+    .chart-header__title {
+      font-size: var(--nb-text-lg);
+      font-weight: var(--nb-font-bold);
+      font-family: var(--nb-font-heading);
+    }
+    .chart-tabs {
+      display: flex;
+      gap: 0;
+      border: 2px solid #000;
+      border-radius: var(--nb-radius);
+      overflow: hidden;
+    }
+    .chart-tabs__btn {
+      padding: 6px 16px;
+      font-size: var(--nb-text-sm);
+      font-weight: var(--nb-font-semibold);
+      font-family: var(--nb-font-sans);
+      background: var(--nb-white);
+      border: none;
+      cursor: pointer;
+      transition: background var(--nb-transition-fast), color var(--nb-transition-fast);
+    }
+    .chart-tabs__btn + .chart-tabs__btn {
+      border-left: 2px solid #000;
+    }
+    .chart-tabs__btn.is-active,
+    .chart-tabs__btn:hover {
+      background: #000;
+      color: var(--nb-white);
+    }
+    .chart-area {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--nb-gray-50);
+      color: var(--nb-gray-400);
+      font-size: var(--nb-text-sm);
+      margin: 24px;
+      border: 2px dashed var(--nb-gray-300);
+      border-radius: var(--nb-radius);
+    }
+
+    /* Two-column section */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      border-top: 2px solid #000;
+    }
+    .two-col__left {
+      padding: 24px;
+      background: var(--nb-gray-50);
+    }
+    .two-col__right {
+      padding: 24px;
+      border-left: 2px solid #000;
+      background: var(--nb-white);
+    }
+    .section-title {
+      font-size: var(--nb-text-base);
+      font-weight: var(--nb-font-bold);
+      font-family: var(--nb-font-heading);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* Top pages list */
+    .page-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--nb-gray-200);
+      font-size: var(--nb-text-sm);
+    }
+    .page-row:last-child { border-bottom: none; }
+    .page-row__path {
+      font-family: var(--nb-font-mono);
+      font-weight: var(--nb-font-medium);
+      white-space: nowrap;
+      min-width: 120px;
+    }
+    .page-row__views {
+      color: var(--nb-gray-500);
+      font-size: var(--nb-text-xs);
+      white-space: nowrap;
+      min-width: 80px;
+      text-align: right;
+    }
+    .page-row__bar {
+      flex: 1;
+      height: 8px;
+      background: var(--nb-gray-200);
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid var(--nb-gray-300);
+    }
+    .page-row__bar-fill {
+      height: 100%;
+      background: var(--nb-green-500);
+      border-radius: 2px 0 0 2px;
+    }
+
+    /* Traffic sources */
+    .source-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .source-row:last-child { margin-bottom: 0; }
+    .source-row__label {
+      font-size: var(--nb-text-sm);
+      font-weight: var(--nb-font-medium);
+      min-width: 64px;
+    }
+    .source-row__bar-track {
+      flex: 1;
+      height: 24px;
+      background: var(--nb-gray-100);
+      border: 2px solid #000;
+      border-radius: var(--nb-radius);
+      overflow: hidden;
+    }
+    .source-row__bar-fill {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      font-size: var(--nb-text-xs);
+      font-weight: var(--nb-font-bold);
+      color: #000;
+    }
+    .source-row__pct {
+      font-size: var(--nb-text-sm);
+      font-weight: var(--nb-font-bold);
+      min-width: 36px;
+      text-align: right;
+    }
+
+    /* Ticker */
+    .ticker-section {
+      border-top: 2px solid #000;
+      background: var(--nb-gray-50);
+      padding: 16px 24px;
+    }
+    .ticker-title {
+      font-size: var(--nb-text-xs);
+      font-weight: var(--nb-font-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--nb-gray-500);
+      margin-bottom: 12px;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+    }
+    .ticker-track::-webkit-scrollbar { height: 4px; }
+    .ticker-track::-webkit-scrollbar-thumb { background: var(--nb-gray-300); border-radius: 2px; }
+    .ticker-pill {
+      flex-shrink: 0;
+      padding: 8px 14px;
+      font-size: var(--nb-text-xs);
+      font-weight: var(--nb-font-medium);
+      background: var(--nb-white);
+      border: 2px solid #000;
+      border-radius: var(--nb-radius-full);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ticker-pill__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .ticker-pill__time {
+      color: var(--nb-gray-400);
+      font-size: 0.6875rem;
+    }
+
+    @media (max-width: 768px) {
+      .stats-strip { flex-wrap: wrap; }
+      .stats-strip__item + .stats-strip__item { border-left: none; border-top: 2px solid #000; }
+      .stats-strip__item { flex: 1 1 50%; }
+      .two-col { grid-template-columns: 1fr; }
+      .two-col__right { border-left: none; border-top: 2px solid #000; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR NAV
+     ============================================================ -->
+<header style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:2px solid #000;background:#fff;">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="../index.html" style="text-decoration:none;color:#000;display:flex;align-items:center;gap:8px;">
+      <span style="background:#00FF00;border:2px solid #000;border-radius:4px;padding:2px 6px;font-weight:800;font-size:12px;line-height:1;">NB</span>
+    </a>
+    <span style="color:#D1D5DB;">|</span>
+    <h1 style="font-size:18px;font-weight:700;font-family:'Space Grotesk',sans-serif;">Analytics</h1>
+  </div>
+  <nav style="display:flex;gap:8px;align-items:center;">
+    <a href="dashboard.html" class="nb-btn nb-btn--ghost nb-btn--sm">Overview</a>
+    <a href="dashboard-analytics.html" class="nb-btn nb-btn--ghost nb-btn--sm" style="background:var(--nb-gray-100);">Analytics</a>
+    <a href="dashboard-crm.html" class="nb-btn nb-btn--ghost nb-btn--sm">CRM</a>
+    <a href="settings.html" class="nb-btn nb-btn--ghost nb-btn--sm">Settings</a>
+  </nav>
+</header>
+
+
+<!-- ============================================================
+     STATS STRIP
+     ============================================================ -->
+<div class="stats-strip">
+  <div class="stats-strip__item">
+    <span class="stats-strip__label">Revenue</span>
+    <div class="stats-strip__row">
+      <span class="stats-strip__value">$45.2k</span>
+      <span class="stats-strip__change stats-strip__change--up">+20%</span>
+    </div>
+  </div>
+  <div class="stats-strip__item">
+    <span class="stats-strip__label">Users</span>
+    <div class="stats-strip__row">
+      <span class="stats-strip__value">2,350</span>
+      <span class="stats-strip__change stats-strip__change--up">+12%</span>
+    </div>
+  </div>
+  <div class="stats-strip__item">
+    <span class="stats-strip__label">Sessions</span>
+    <div class="stats-strip__row">
+      <span class="stats-strip__value">18.4k</span>
+      <span class="stats-strip__change stats-strip__change--down">-3%</span>
+    </div>
+  </div>
+  <div class="stats-strip__item">
+    <span class="stats-strip__label">Conversion</span>
+    <div class="stats-strip__row">
+      <span class="stats-strip__value">3.2%</span>
+      <span class="stats-strip__change stats-strip__change--up">+0.5%</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     CHART SECTION
+     ============================================================ -->
+<div class="chart-section">
+  <div class="chart-header">
+    <span class="chart-header__title">Revenue Over Time</span>
+    <div class="chart-tabs">
+      <button class="chart-tabs__btn is-active">Day</button>
+      <button class="chart-tabs__btn">Week</button>
+      <button class="chart-tabs__btn">Month</button>
+    </div>
+  </div>
+  <div class="chart-area">
+    Chart placeholder -- integrate your preferred charting library
+  </div>
+</div>
+
+
+<!-- ============================================================
+     TWO-COLUMN: TOP PAGES + TRAFFIC SOURCES
+     ============================================================ -->
+<div class="two-col">
+
+  <!-- Left: Top Pages -->
+  <div class="two-col__left">
+    <div class="section-title">Top Pages</div>
+    <div class="page-row">
+      <span class="page-row__path">/home</span>
+      <div class="page-row__bar"><div class="page-row__bar-fill" style="width:100%;"></div></div>
+      <span class="page-row__views">4,230 views</span>
+    </div>
+    <div class="page-row">
+      <span class="page-row__path">/pricing</span>
+      <div class="page-row__bar"><div class="page-row__bar-fill" style="width:72%;"></div></div>
+      <span class="page-row__views">3,045 views</span>
+    </div>
+    <div class="page-row">
+      <span class="page-row__path">/blog</span>
+      <div class="page-row__bar"><div class="page-row__bar-fill" style="width:58%;"></div></div>
+      <span class="page-row__views">2,451 views</span>
+    </div>
+    <div class="page-row">
+      <span class="page-row__path">/docs</span>
+      <div class="page-row__bar"><div class="page-row__bar-fill" style="width:45%;"></div></div>
+      <span class="page-row__views">1,903 views</span>
+    </div>
+    <div class="page-row">
+      <span class="page-row__path">/about</span>
+      <div class="page-row__bar"><div class="page-row__bar-fill" style="width:30%;"></div></div>
+      <span class="page-row__views">1,269 views</span>
+    </div>
+    <div class="page-row">
+      <span class="page-row__path">/contact</span>
+      <div class="page-row__bar"><div class="page-row__bar-fill" style="width:18%;"></div></div>
+      <span class="page-row__views">762 views</span>
+    </div>
+  </div>
+
+  <!-- Right: Traffic Sources -->
+  <div class="two-col__right">
+    <div class="section-title">Traffic Sources</div>
+    <div class="source-row">
+      <span class="source-row__label">Direct</span>
+      <div class="source-row__bar-track">
+        <div class="source-row__bar-fill" style="width:35%;background:var(--nb-yellow-300);">35%</div>
+      </div>
+      <span class="source-row__pct">35%</span>
+    </div>
+    <div class="source-row">
+      <span class="source-row__label">Organic</span>
+      <div class="source-row__bar-track">
+        <div class="source-row__bar-fill" style="width:28%;background:var(--nb-green-400);">28%</div>
+      </div>
+      <span class="source-row__pct">28%</span>
+    </div>
+    <div class="source-row">
+      <span class="source-row__label">Social</span>
+      <div class="source-row__bar-track">
+        <div class="source-row__bar-fill" style="width:22%;background:var(--nb-blue-500);">22%</div>
+      </div>
+      <span class="source-row__pct">22%</span>
+    </div>
+    <div class="source-row">
+      <span class="source-row__label">Referral</span>
+      <div class="source-row__bar-track">
+        <div class="source-row__bar-fill" style="width:15%;background:var(--nb-gray-400);">15%</div>
+      </div>
+      <span class="source-row__pct">15%</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     REAL-TIME ACTIVITY TICKER
+     ============================================================ -->
+<div class="ticker-section">
+  <div class="ticker-title">Real-time Activity</div>
+  <div class="ticker-track">
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-green-500);"></span>
+      User signed up
+      <span class="ticker-pill__time">2m ago</span>
+    </div>
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-yellow-300);"></span>
+      Purchase $29
+      <span class="ticker-pill__time">5m ago</span>
+    </div>
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-blue-500);"></span>
+      Page view /pricing
+      <span class="ticker-pill__time">6m ago</span>
+    </div>
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-green-500);"></span>
+      User signed up
+      <span class="ticker-pill__time">8m ago</span>
+    </div>
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-red-500);"></span>
+      Subscription cancelled
+      <span class="ticker-pill__time">12m ago</span>
+    </div>
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-yellow-300);"></span>
+      Purchase $99
+      <span class="ticker-pill__time">15m ago</span>
+    </div>
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-blue-500);"></span>
+      Page view /docs
+      <span class="ticker-pill__time">18m ago</span>
+    </div>
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-green-500);"></span>
+      User signed up
+      <span class="ticker-pill__time">22m ago</span>
+    </div>
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-yellow-300);"></span>
+      Purchase $149
+      <span class="ticker-pill__time">25m ago</span>
+    </div>
+    <div class="ticker-pill">
+      <span class="ticker-pill__dot" style="background:var(--nb-orange-500);"></span>
+      Support ticket opened
+      <span class="ticker-pill__time">30m ago</span>
+    </div>
+  </div>
+</div>
+
+<script src="../js/nb-all.js"></script>
+<script>
+  // Simple tab interaction for chart period tabs
+  document.querySelectorAll('.chart-tabs__btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.chart-tabs__btn').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+    });
+  });
+</script>
+</body>
+</html>
