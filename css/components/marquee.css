@@ -1,0 +1,68 @@
+/*
+ * NB Marquee — Infinite scrolling ticker
+ * Logos, text, badges scrolling horizontally. CSS-only animation.
+ */
+@layer components {
+
+  /* ── Keyframes ── */
+  @keyframes nb-marquee-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── Wrapper ── */
+  .nb-marquee {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  /* ── Track — must contain duplicated children for seamless loop ── */
+  .nb-marquee__track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: nb-marquee-scroll 30s linear infinite;
+  }
+
+  /* ── Individual item ── */
+  .nb-marquee__item {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 var(--nb-space-6);
+  }
+
+  /* ── Direction ── */
+  .nb-marquee--reverse .nb-marquee__track {
+    animation-direction: reverse;
+  }
+
+  /* ── Speed variants ── */
+  .nb-marquee--slow .nb-marquee__track {
+    animation-duration: 60s;
+  }
+
+  .nb-marquee--fast .nb-marquee__track {
+    animation-duration: 15s;
+  }
+
+  /* ── Pause on hover ── */
+  .nb-marquee--pause-on-hover:hover .nb-marquee__track {
+    animation-play-state: paused;
+  }
+
+  /* ── Bordered variant ── */
+  .nb-marquee--bordered {
+    border-top: var(--nb-border);
+    border-bottom: var(--nb-border);
+    padding: var(--nb-space-4) 0;
+  }
+
+  /* ── Accessibility: respect reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-marquee__track {
+      animation: none;
+    }
+  }
+}

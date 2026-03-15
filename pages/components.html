@@ -371,6 +371,15 @@
   <a href="#json-viewer" class="showcase-sidebar__link">JSON Viewer</a>
   <a href="#api-playground" class="showcase-sidebar__link">API Playground</a>
 
+  <div class="showcase-sidebar__group">Marketing</div>
+  <a href="#marquee" class="showcase-sidebar__link">Marquee</a>
+  <a href="#hero-section" class="showcase-sidebar__link">Hero Section</a>
+  <a href="#trust-bar" class="showcase-sidebar__link">Trust Bar</a>
+  <a href="#logo-cloud" class="showcase-sidebar__link">Logo Cloud</a>
+  <a href="#newsletter-card" class="showcase-sidebar__link">Newsletter Card</a>
+  <a href="#decorations" class="showcase-sidebar__link">Decorations</a>
+  <a href="#pricing-table" class="showcase-sidebar__link">Pricing Table</a>
+
   <div class="showcase-sidebar__footer">
     <a href="https://github.com/ashishbishnoi18/nb-ui-kit" class="nb-btn nb-btn--dark nb-btn--sm nb-btn--full" target="_blank" rel="noopener">
       <svg width="14" height="14" aria-hidden="true"><use href="#nb-icon-github"/></svg>
@@ -2741,6 +2750,388 @@ NB.toast.success('Your changes have been saved.');</code></pre>
           <span class="nb-console__time">14:23:18</span>
           <span class="nb-console__level--error">[ERR]</span>
           <span class="nb-console__msg">DELETE /api/v1/users/5 — 403 Forbidden: insufficient permissions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MARQUEE
+     ============================================================ -->
+<section id="marquee" class="nb-section">
+  <div class="nb-container">
+    <h2 class="section-heading">Marquee</h2>
+    <p class="section-description">Infinite horizontal scrolling ticker for logos, text, or badges. CSS-only animation with JS auto-cloning for seamless looping.</p>
+
+    <h3 class="subsection-title">Default</h3>
+    <div class="nb-marquee nb-marquee--bordered nb-marquee--pause-on-hover" data-nb-marquee style="margin-bottom:var(--nb-space-6);">
+      <div class="nb-marquee__track">
+        <div class="nb-marquee__item"><span class="nb-badge nb-badge--secondary">Vercel</span></div>
+        <div class="nb-marquee__item"><span class="nb-badge nb-badge--secondary">Stripe</span></div>
+        <div class="nb-marquee__item"><span class="nb-badge nb-badge--secondary">Notion</span></div>
+        <div class="nb-marquee__item"><span class="nb-badge nb-badge--secondary">Linear</span></div>
+        <div class="nb-marquee__item"><span class="nb-badge nb-badge--secondary">Supabase</span></div>
+        <div class="nb-marquee__item"><span class="nb-badge nb-badge--secondary">Resend</span></div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Reverse + Slow</h3>
+    <div class="nb-marquee nb-marquee--bordered nb-marquee--reverse nb-marquee--slow" data-nb-marquee>
+      <div class="nb-marquee__track">
+        <div class="nb-marquee__item"><span class="nb-badge">Component A</span></div>
+        <div class="nb-marquee__item"><span class="nb-badge nb-badge--primary">Component B</span></div>
+        <div class="nb-marquee__item"><span class="nb-badge nb-badge--danger">Component C</span></div>
+        <div class="nb-marquee__item"><span class="nb-badge nb-badge--secondary">Component D</span></div>
+        <div class="nb-marquee__item"><span class="nb-badge">Component E</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section id="hero-section" class="nb-section nb-bg-gray-50">
+  <div class="nb-container">
+    <h2 class="section-heading">Hero Section</h2>
+    <p class="section-description">Reusable hero layouts: split with media, centered, dark, and yellow variants.</p>
+
+    <h3 class="subsection-title">Split (with form card)</h3>
+    <div class="nb-border nb-rounded" style="overflow:hidden;margin-bottom:var(--nb-space-6);">
+      <div class="nb-hero nb-hero--split" style="padding:var(--nb-space-8) 0;">
+        <div class="nb-hero__container">
+          <div class="nb-hero__content">
+            <span class="nb-hero__badge">New</span>
+            <h2 class="nb-hero__title" style="font-size:var(--nb-text-3xl);">Split hero with media column</h2>
+            <p class="nb-hero__subtitle">The right column can hold a form, image, or illustration.</p>
+            <div class="nb-hero__actions">
+              <button class="nb-btn nb-btn--primary">Get Started</button>
+              <button class="nb-btn nb-btn--outline">Learn More</button>
+            </div>
+          </div>
+          <div class="nb-hero__media">
+            <div class="nb-card" style="width:100%;max-width:320px;">
+              <div class="nb-card__body nb-p-5">
+                <p class="nb-font-bold nb-mb-2">Sign up</p>
+                <input type="email" class="nb-input nb-mb-3" placeholder="Email">
+                <button class="nb-btn nb-btn--primary nb-btn--full nb-btn--sm">Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Centered + Dark</h3>
+    <div class="nb-border nb-rounded" style="overflow:hidden;">
+      <div class="nb-hero nb-hero--centered nb-hero--dark" style="padding:var(--nb-space-12) 0;">
+        <div class="nb-hero__container">
+          <div class="nb-hero__content">
+            <span class="nb-hero__badge">Announcement</span>
+            <h2 class="nb-hero__title" style="font-size:var(--nb-text-3xl);">Centered hero on dark</h2>
+            <p class="nb-hero__subtitle">Great for above-the-fold CTAs with a focused message.</p>
+            <div class="nb-hero__actions">
+              <button class="nb-btn nb-btn--secondary">Call to Action</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TRUST BAR
+     ============================================================ -->
+<section id="trust-bar" class="nb-section">
+  <div class="nb-container">
+    <h2 class="section-heading">Trust Bar</h2>
+    <p class="section-description">Social proof strip with star ratings, member counts, and review badges.</p>
+
+    <h3 class="subsection-title">Bordered + Centered</h3>
+    <div class="nb-trust-bar nb-trust-bar--bordered nb-trust-bar--centered" style="margin-bottom:var(--nb-space-6);">
+      <div class="nb-trust-bar__items">
+        <div class="nb-trust-bar__item">
+          <div class="nb-trust-bar__stars">
+            <svg class="nb-trust-bar__star nb-trust-bar__star--filled" viewBox="0 0 24 24"><use href="#nb-icon-star"/></svg>
+            <svg class="nb-trust-bar__star nb-trust-bar__star--filled" viewBox="0 0 24 24"><use href="#nb-icon-star"/></svg>
+            <svg class="nb-trust-bar__star nb-trust-bar__star--filled" viewBox="0 0 24 24"><use href="#nb-icon-star"/></svg>
+            <svg class="nb-trust-bar__star nb-trust-bar__star--filled" viewBox="0 0 24 24"><use href="#nb-icon-star"/></svg>
+            <svg class="nb-trust-bar__star nb-trust-bar__star--empty" viewBox="0 0 24 24"><use href="#nb-icon-star"/></svg>
+          </div>
+          <span class="nb-trust-bar__label">4.8/5 rating</span>
+        </div>
+        <div class="nb-trust-bar__divider"></div>
+        <div class="nb-trust-bar__item">
+          <span class="nb-trust-bar__count">5,000+</span>
+          <span class="nb-trust-bar__label">users</span>
+        </div>
+        <div class="nb-trust-bar__divider"></div>
+        <div class="nb-trust-bar__item">
+          <span class="nb-trust-bar__count">99.9%</span>
+          <span class="nb-trust-bar__label">uptime</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Compact</h3>
+    <div class="nb-trust-bar nb-trust-bar--compact nb-trust-bar--bordered">
+      <div class="nb-trust-bar__items">
+        <div class="nb-trust-bar__item">
+          <span class="nb-trust-bar__count">2M+</span>
+          <span class="nb-trust-bar__label">downloads</span>
+        </div>
+        <div class="nb-trust-bar__divider"></div>
+        <div class="nb-trust-bar__item">
+          <span class="nb-trust-bar__count">500+</span>
+          <span class="nb-trust-bar__label">contributors</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     LOGO CLOUD
+     ============================================================ -->
+<section id="logo-cloud" class="nb-section nb-bg-gray-50">
+  <div class="nb-container">
+    <h2 class="section-heading">Logo Cloud</h2>
+    <p class="section-description">Static grid of partner or client logos with pill, grayscale, and bordered variants.</p>
+
+    <h3 class="subsection-title">Pills</h3>
+    <div class="nb-logo-cloud nb-logo-cloud--pills" style="margin-bottom:var(--nb-space-6);">
+      <p class="nb-logo-cloud__heading">Trusted by</p>
+      <div class="nb-logo-cloud__grid">
+        <span class="nb-logo-cloud__item">Vercel</span>
+        <span class="nb-logo-cloud__item">Stripe</span>
+        <span class="nb-logo-cloud__item">Notion</span>
+        <span class="nb-logo-cloud__item">Linear</span>
+        <span class="nb-logo-cloud__item">Supabase</span>
+        <span class="nb-logo-cloud__item">Resend</span>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Bordered</h3>
+    <div class="nb-logo-cloud nb-logo-cloud--bordered">
+      <div class="nb-logo-cloud__grid">
+        <span class="nb-logo-cloud__item">GitHub</span>
+        <span class="nb-logo-cloud__item">Figma</span>
+        <span class="nb-logo-cloud__item">Slack</span>
+        <span class="nb-logo-cloud__item">Discord</span>
+        <span class="nb-logo-cloud__item">Raycast</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     NEWSLETTER CARD
+     ============================================================ -->
+<section id="newsletter-card" class="nb-section">
+  <div class="nb-container">
+    <h2 class="section-heading">Newsletter Card</h2>
+    <p class="section-description">Article preview cards with image, category, title, excerpt, and meta row.</p>
+
+    <h3 class="subsection-title">Default Grid</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--nb-space-6);margin-bottom:var(--nb-space-8);">
+      <a href="#" class="nb-newsletter-card">
+        <div class="nb-newsletter-card__img" style="background:var(--nb-yellow-300);"></div>
+        <div class="nb-newsletter-card__body">
+          <span class="nb-newsletter-card__category">&#128640; Launch</span>
+          <h3 class="nb-newsletter-card__title">How to Ship a Design System in a Weekend</h3>
+          <p class="nb-newsletter-card__excerpt">Learn the step-by-step approach we used to build and release NB UI Kit to production in less than 48 hours.</p>
+          <div class="nb-newsletter-card__meta">
+            <span>Mar 10, 2026</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="nb-newsletter-card">
+        <div class="nb-newsletter-card__img" style="background:var(--nb-green-400);"></div>
+        <div class="nb-newsletter-card__body">
+          <span class="nb-newsletter-card__category">&#128218; Tutorial</span>
+          <h3 class="nb-newsletter-card__title">CSS Custom Properties for Theming</h3>
+          <p class="nb-newsletter-card__excerpt">Unlock the power of design tokens with CSS custom properties and create flexible, themeable component libraries.</p>
+          <div class="nb-newsletter-card__meta">
+            <span>Mar 5, 2026</span>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="nb-newsletter-card">
+        <div class="nb-newsletter-card__img" style="background:var(--nb-blue-500);"></div>
+        <div class="nb-newsletter-card__body">
+          <span class="nb-newsletter-card__category">&#127912; Design</span>
+          <h3 class="nb-newsletter-card__title">Neo Brutalism: Why Bold Borders Work</h3>
+          <p class="nb-newsletter-card__excerpt">Exploring the design principles behind neo-brutalism and why the aesthetic resonates with modern web users.</p>
+          <div class="nb-newsletter-card__meta">
+            <span>Feb 28, 2026</span>
+            <span>4 min read</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <h3 class="subsection-title">Horizontal</h3>
+    <a href="#" class="nb-newsletter-card nb-newsletter-card--horizontal" style="max-width:600px;">
+      <div class="nb-newsletter-card__img" style="background:var(--nb-orange-500);"></div>
+      <div class="nb-newsletter-card__body">
+        <span class="nb-newsletter-card__category">&#128736; Engineering</span>
+        <h3 class="nb-newsletter-card__title">Zero-Dependency UI Components</h3>
+        <p class="nb-newsletter-card__excerpt">Building production-grade components without any framework dependencies.</p>
+        <div class="nb-newsletter-card__meta">
+          <span>Feb 20, 2026</span>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     DECORATIONS
+     ============================================================ -->
+<section id="decorations" class="nb-section nb-bg-gray-50">
+  <div class="nb-container">
+    <h2 class="section-heading">Decorations</h2>
+    <p class="section-description">Animated positioned elements for visual flair. Float, spin, pulse, and bounce animations with configurable sizes and delays.</p>
+
+    <div class="nb-border nb-rounded nb-bg-white" style="position:relative;height:280px;overflow:hidden;">
+      <span class="nb-decor nb-decor--float nb-decor--lg" style="top:10%;left:10%">&#9733;</span>
+      <span class="nb-decor nb-decor--spin nb-decor--md nb-decor--delay-1" style="top:15%;right:20%">&#9883;</span>
+      <span class="nb-decor nb-decor--pulse nb-decor--sm nb-decor--delay-2" style="bottom:25%;left:25%">&#9679;</span>
+      <span class="nb-decor nb-decor--bounce nb-decor--md" style="bottom:20%;right:15%">&#9650;</span>
+      <span class="nb-decor nb-decor--float nb-decor--xl nb-decor--delay-3" style="top:40%;left:50%">&#9830;</span>
+
+      <div style="position:absolute;bottom:var(--nb-space-4);left:50%;transform:translateX(-50%);text-align:center;z-index:1;">
+        <p class="nb-text-sm nb-text-gray-500">Floating elements animate independently with configurable delays</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PRICING TABLE
+     ============================================================ -->
+<section id="pricing-table" class="nb-section">
+  <div class="nb-container">
+    <h2 class="section-heading">Pricing Table</h2>
+    <p class="section-description">Reusable pricing card grid with featured tier, feature lists, and monthly/annual toggle.</p>
+
+    <div class="nb-text-center nb-mb-6">
+      <div class="nb-pricing__toggle">
+        <button class="nb-pricing__toggle-option is-active">Monthly</button>
+        <button class="nb-pricing__toggle-option">Annual</button>
+      </div>
+    </div>
+
+    <div class="nb-pricing__grid">
+      <!-- Free -->
+      <div class="nb-pricing__card">
+        <div class="nb-pricing__header">
+          <p class="nb-pricing__name">Free</p>
+          <p class="nb-pricing__description">For side projects and experiments</p>
+        </div>
+        <div class="nb-pricing__price">
+          <span class="nb-pricing__amount">$0</span>
+          <span class="nb-pricing__period">/month</span>
+        </div>
+        <div class="nb-pricing__features">
+          <div class="nb-pricing__feature">
+            <svg width="16" height="16" style="color:var(--nb-green-500);"><use href="#nb-icon-check"/></svg>
+            <span>25 components</span>
+          </div>
+          <div class="nb-pricing__feature">
+            <svg width="16" height="16" style="color:var(--nb-green-500);"><use href="#nb-icon-check"/></svg>
+            <span>Community support</span>
+          </div>
+          <div class="nb-pricing__feature nb-pricing__feature--disabled">
+            <svg width="16" height="16"><use href="#nb-icon-x"/></svg>
+            <span>Premium templates</span>
+          </div>
+          <div class="nb-pricing__feature nb-pricing__feature--disabled">
+            <svg width="16" height="16"><use href="#nb-icon-x"/></svg>
+            <span>Priority support</span>
+          </div>
+        </div>
+        <div class="nb-pricing__cta">
+          <button class="nb-btn nb-btn--outline">Get Started</button>
+        </div>
+      </div>
+
+      <!-- Pro (featured) -->
+      <div class="nb-pricing__card nb-pricing__card--featured">
+        <span class="nb-pricing__badge">Most Popular</span>
+        <div class="nb-pricing__header">
+          <p class="nb-pricing__name">Pro</p>
+          <p class="nb-pricing__description">For teams shipping real products</p>
+        </div>
+        <div class="nb-pricing__price">
+          <span class="nb-pricing__amount">$29</span>
+          <span class="nb-pricing__period">/month</span>
+        </div>
+        <div class="nb-pricing__features">
+          <div class="nb-pricing__feature">
+            <svg width="16" height="16" style="color:var(--nb-green-500);"><use href="#nb-icon-check"/></svg>
+            <span>50+ components</span>
+          </div>
+          <div class="nb-pricing__feature">
+            <svg width="16" height="16" style="color:var(--nb-green-500);"><use href="#nb-icon-check"/></svg>
+            <span>Premium templates</span>
+          </div>
+          <div class="nb-pricing__feature">
+            <svg width="16" height="16" style="color:var(--nb-green-500);"><use href="#nb-icon-check"/></svg>
+            <span>Priority support</span>
+          </div>
+          <div class="nb-pricing__feature nb-pricing__feature--disabled">
+            <svg width="16" height="16"><use href="#nb-icon-x"/></svg>
+            <span>Custom branding</span>
+          </div>
+        </div>
+        <div class="nb-pricing__cta">
+          <button class="nb-btn nb-btn--primary">Get Started</button>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="nb-pricing__card">
+        <div class="nb-pricing__header">
+          <p class="nb-pricing__name">Enterprise</p>
+          <p class="nb-pricing__description">For large teams with custom needs</p>
+        </div>
+        <div class="nb-pricing__price">
+          <span class="nb-pricing__amount">$99</span>
+          <span class="nb-pricing__period">/month</span>
+        </div>
+        <div class="nb-pricing__features">
+          <div class="nb-pricing__feature">
+            <svg width="16" height="16" style="color:var(--nb-green-500);"><use href="#nb-icon-check"/></svg>
+            <span>Everything in Pro</span>
+          </div>
+          <div class="nb-pricing__feature">
+            <svg width="16" height="16" style="color:var(--nb-green-500);"><use href="#nb-icon-check"/></svg>
+            <span>Custom branding</span>
+          </div>
+          <div class="nb-pricing__feature">
+            <svg width="16" height="16" style="color:var(--nb-green-500);"><use href="#nb-icon-check"/></svg>
+            <span>Dedicated support</span>
+          </div>
+          <div class="nb-pricing__feature">
+            <svg width="16" height="16" style="color:var(--nb-green-500);"><use href="#nb-icon-check"/></svg>
+            <span>SLA guarantee</span>
+          </div>
+        </div>
+        <div class="nb-pricing__cta">
+          <button class="nb-btn nb-btn--dark">Contact Sales</button>
         </div>
       </div>
     </div>

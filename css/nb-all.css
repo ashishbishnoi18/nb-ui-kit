@@ -62,6 +62,13 @@
 @import "components/code-block.css";
 @import "components/json-viewer.css";
 @import "components/api-playground.css";
+@import "components/marquee.css";
+@import "components/hero.css";
+@import "components/trust-bar.css";
+@import "components/logo-cloud.css";
+@import "components/newsletter-card.css";
+@import "components/decorations.css";
+@import "components/pricing-table.css";
 
 /* Utilities (last — highest specificity via layers) */
 @import "utilities.css";

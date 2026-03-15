@@ -1,0 +1,100 @@
+/*
+ * NB Decorations — Floating animated positioned elements
+ * Visual flair: float, spin, pulse, bounce.
+ */
+@layer components {
+
+  /* ── Keyframes ── */
+  @keyframes nb-decor-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-20px) rotate(3deg); }
+  }
+
+  @keyframes nb-decor-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes nb-decor-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%      { transform: scale(1.15); opacity: 0.8; }
+  }
+
+  @keyframes nb-decor-bounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-30px); }
+  }
+
+  /* ── Base ── */
+  .nb-decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    line-height: 1;
+  }
+
+  /* ── Animations ── */
+  .nb-decor--float {
+    animation: nb-decor-float 6s ease-in-out infinite;
+  }
+
+  .nb-decor--spin {
+    animation: nb-decor-spin 20s linear infinite;
+  }
+
+  .nb-decor--pulse {
+    animation: nb-decor-pulse 3s ease-in-out infinite;
+  }
+
+  .nb-decor--bounce {
+    animation: nb-decor-bounce 4s ease-in-out infinite;
+  }
+
+  /* ── Sizes ── */
+  .nb-decor--sm {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+  }
+
+  .nb-decor--md {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+  }
+
+  .nb-decor--lg {
+    width: 64px;
+    height: 64px;
+    font-size: 64px;
+  }
+
+  .nb-decor--xl {
+    width: 96px;
+    height: 96px;
+    font-size: 96px;
+  }
+
+  /* ── Delays ── */
+  .nb-decor--delay-1 {
+    animation-delay: 1s;
+  }
+
+  .nb-decor--delay-2 {
+    animation-delay: 2s;
+  }
+
+  .nb-decor--delay-3 {
+    animation-delay: 3s;
+  }
+
+  /* ── Accessibility: respect reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-decor--float,
+    .nb-decor--spin,
+    .nb-decor--pulse,
+    .nb-decor--bounce {
+      animation: none;
+    }
+  }
+}

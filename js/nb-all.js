@@ -43,7 +43,8 @@
     'components/code-block.js',
     'components/json-viewer.js',
     'components/kv-editor.js',
-    'components/api-console.js'
+    'components/api-console.js',
+    'components/marquee.js'
   ];
 
   scripts.forEach(function (src) {
